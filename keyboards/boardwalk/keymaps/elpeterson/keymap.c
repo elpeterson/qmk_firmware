@@ -44,11 +44,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
 
     [_NUM] = LAYOUT_elpeterson(\
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_BSPC, KC_PSLS, KC_PAST, KC_PMNS, \
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_P7,   KC_P8,   KC_P9,   KC_PPLS, \
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_P4,   KC_P5,   KC_P6,   KC_PCMM, \
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_P1,   KC_P2,   KC_P3,   KC_PEQL, \
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, TO(_ALPHAS),  KC_NO, KC_P0,   KC_P0,   KC_PDOT, KC_ENT \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_BSPC, KC_PSLS, KC_PAST, KC_PMNS, \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_P7,   KC_P8,   KC_P9,   KC_PPLS, \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_P4,   KC_P5,   KC_P6,   KC_PCMM, \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_P1,   KC_P2,   KC_P3,   KC_PEQL, \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, TO(_ALPHAS), KC_NO, KC_P0,   KC_P0,   KC_PDOT, KC_ENT \
     ),
 
     /* FNC
@@ -66,22 +66,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
 
     [_FNC] = LAYOUT_elpeterson(\
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TO(_ALPHAS) \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, TO(_RGB), KC_NO, KC_NO, KC_NO, KC_NO, TO(_ALPHAS) \
     ),
 
     /* RGB
      * .-----------------------------------------------------------------------------------------------------------------------------.
      * | TOG    | Plain  | Breathe| Rainbow| Swirl  | Snake  | Knight | XMas   |Gradient| RGBTest|        |        |        |        |
      * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
-     * |        |        |        |        |        |        |        |        |        |        |        |        |        | '      |
+     * |        | HUE-   | HUE+   |        |        |        |        |        |        |        |        |        |        | '      |
      * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
-     * |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+     * |        | SAT-   | SAT+   |        |        |        |        |        |        |        |        |        |        |        |
      * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
-     * |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+     * |        | BRGHT- | BRGHT+ |        |        |        |        |        |        |        |        |        |        |        |
      * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+-----------------+--------+--------|
      * |        |        |        |        |        |                 |        |        |        |        |        |        |        |
      * '-----------------------------------------------------------------------------------------------------------------------------'
@@ -92,6 +92,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,   RGB_HUD, RGB_HUI, KC_NO,   KC_NO,    KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
         KC_NO,   RGB_SAD, RGB_SAI, KC_NO,   KC_NO,    KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
         KC_NO,   RGB_VAD, RGB_VAI, KC_NO,   KC_NO,    KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,   TO(0),   KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO \
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,             KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, TO(_ALPHAS) \
     )
 };
