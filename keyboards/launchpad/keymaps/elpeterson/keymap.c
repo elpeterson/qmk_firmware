@@ -2,45 +2,78 @@
 
 extern keymap_config_t keymap_config;
 
-#define _ARROWS 0
+#define _MACROS 0
 #define _RGB 1
+
+enum custom_keycodes {
+  STATUS = SAFE_RANGE,
+  MASTER,
+  ADD,
+  COMMIT,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+    case STATUS:
+      if (record->event.pressed) {
+        SEND_STRING("git status" SS_TAP(X_ENTER));
+      }
+      break;
+    case MASTER:
+      if (record->event.pressed) {
+        SEND_STRING("git checkout master && git pull" SS_TAP(X_ENTER));
+      }
+      break;
+    case ADD:
+      if (record->event.pressed) {
+        SEND_STRING("git add --all" SS_TAP(X_ENTER));
+      }
+      break;
+    case COMMIT:
+      if (record->event.pressed) {
+        SEND_STRING("git commit -m \"\"" SS_TAP(X_LEFT));
+      }
+      break;
+  }
+  return true;
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    /* ARROWS
-     * ,-------------.
-     * | LEFT | ESC  |
-     * |------+------|
-     * | DOWN |  UP  |
-     * |------+------|
-     * | RGHT | DEL  |
-     * |------+------|
-     * |    ENTER    |
-     * `-------------'
+    /* MACROS
+     * ,-----------------.
+     * | STATUS | MASTER |
+     * |--------+--------|
+     * | ADD    | COMMIT |
+     * |--------+--------|
+     * | DEL    | (RBG)  |
+     * |--------+--------|
+     * |    ENTER(RGB)   |
+     * `-----------------'
      */
-    [_ARROWS] = LAYOUT( \
-        KC_LEFT, LT(1,KC_ESC), \
-        KC_DOWN, KC_UP, \
-        KC_RGHT, KC_DEL, \
-        KC_ENT,  KC_ENT \
+    [_MACROS] = LAYOUT( \
+        STATUS, MASTER, \
+        ADD,    COMMIT, \
+        KC_DEL, TO(_RGB), \
+        KC_ENT, KC_ENT \
       ),
 
     /* RGB
-     * ,-------------.
-     * | SAT- |      |
-     * |------+------|
-     * | HUE- | HUE+ |
-     * |------+------|
-     * | SAT+ | Mode+|
-     * |------+------|
-     * |    RGBTOG   |
-     * `-------------'
+     * ,-----------------.
+     * | SAT+   | SAT-   |
+     * |--------+--------|
+     * | HUE+   | HUE-   |
+     * |--------+--------|
+     * | MODE+  | MODE-  |
+     * |--------+--------|
+     * |  ENTER(MACROS)  |
+     * `-----------------'
      */
     [_RGB] = LAYOUT( \
-        RGB_SAD, _______, \
-        RGB_HUD, RGB_HUI, \
-        RGB_SAI, RGB_RMOD, \
-        RGB_TOG, RGB_TOG \
+        RGB_SAI,  RGB_SAD, \
+        RGB_HUI,  RGB_HUD, \
+        RGB_RMOD, TO(_MACROS), \
+        RGB_TOG,  RGB_TOG \
       )
 
 };
