@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |--------+--------|
      * | ADD    | COMMIT |
      * |--------+--------|
-     * | DEL    | (RBG)  |
+     * | GRV    | (RBG)  |
      * |--------+--------|
      * |    ENTER(RGB)   |
      * `-----------------'
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MACROS] = LAYOUT( \
         STATUS, MASTER, \
         ADD,    COMMIT, \
-        KC_DEL, TO(_RGB), \
+        KC_GRV, TO(_RGB), \
         KC_ENT, KC_ENT \
       ),
 
