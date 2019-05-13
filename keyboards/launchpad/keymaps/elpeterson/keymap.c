@@ -13,7 +13,7 @@ enum custom_keycodes {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch(keycode) {
+  switch (keycode) {
     case STATUS:
       if (record->event.pressed) {
         SEND_STRING("git status" SS_TAP(X_ENTER));
@@ -21,7 +21,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case MASTER:
       if (record->event.pressed) {
-        SEND_STRING("git checkout master && git pull" SS_TAP(X_ENTER));
+        SEND_STRING("git pull origin master" SS_TAP(X_ENTER));
       }
       break;
     case ADD:
@@ -51,12 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |    ENTER(RGB)   |
      * `-----------------'
      */
-    [_MACROS] = LAYOUT( \
-        STATUS, MASTER, \
-        ADD,    COMMIT, \
-        KC_GRV, TO(_RGB), \
-        KC_ENT, KC_ENT \
-      ),
+    [_MACROS] = LAYOUT(STATUS, MASTER, ADD, COMMIT, KC_GRV, TO(_RGB), KC_ENT, KC_ENT),
 
     /* RGB
      * ,-----------------.
@@ -69,12 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |  ENTER(MACROS)  |
      * `-----------------'
      */
-    [_RGB] = LAYOUT( \
-        RGB_SAI,  RGB_SAD, \
-        RGB_HUI,  RGB_HUD, \
-        RGB_RMOD, TO(_MACROS), \
-        RGB_TOG,  RGB_TOG \
-      )
+    [_RGB] = LAYOUT(RGB_SAI, RGB_SAD, RGB_HUI, RGB_HUD, RGB_RMOD, TO(_MACROS), RGB_TOG, RGB_TOG)
 
 };
 
