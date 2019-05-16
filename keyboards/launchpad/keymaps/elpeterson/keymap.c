@@ -10,6 +10,7 @@ enum custom_keycodes {
   MASTER,
   ADD,
   COMMIT,
+  PUSH,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -34,6 +35,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("git commit -m \"\"" SS_TAP(X_LEFT));
       }
       break;
+    case PUSH:
+      if (record->event.pressed) {
+        SEND_STRING("git push" SS_TAP(X_ENTER));
+      }
+      break;
   }
   return true;
 };
@@ -48,10 +54,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |--------+--------|
      * | GRV    | (RBG)  |
      * |--------+--------|
-     * |    ENTER(RGB)   |
+     * |      PUSH       |
      * `-----------------'
      */
-    [_MACROS] = LAYOUT(STATUS, MASTER, ADD, COMMIT, KC_GRV, TO(_RGB), KC_ENT, KC_ENT),
+    [_MACROS] = LAYOUT(STATUS, MASTER, ADD, COMMIT, KC_GRV, TO(_RGB), PUSH, PUSH),
 
     /* RGB
      * ,-----------------.
