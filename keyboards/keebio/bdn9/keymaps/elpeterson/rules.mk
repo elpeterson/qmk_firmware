@@ -1,0 +1,3 @@
+CTPC=yes
+RGBLIGHT_ENABLE = yes
+AUDIO_ENABLE = yes

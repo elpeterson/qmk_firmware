@@ -1,0 +1,1 @@
+#define MATRIX_ROW_PINS { B6 }
