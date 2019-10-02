@@ -20,11 +20,6 @@
 #define _RGB 1
 #define _FN  2
 
-// Defines the keycodes used by our macros in process_record_user
-enum custom_keycodes {
-
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* QWERTY
@@ -68,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,   RGB_RMOD, RGB_SPI, RGB_MOD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,   RGB_HUD,  RGB_SPD, RGB_HUI, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,   RGB_SAD,  KC_NO,   RGB_SAI, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,   RGB_VAD,  RGB_TOG, RGB_VAI, KC_NO, KC_NO, TO(0), KC_NO, KC_NO, KC_NO
+    KC_NO,   KC_NO,   TO(0),   KC_NO,    KC_NO,    KC_NO,   RGB_VAD,  RGB_TOG, RGB_VAI, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
   ),
 
 /* FUNCTION
