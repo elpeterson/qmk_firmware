@@ -7,7 +7,6 @@
 enum custom_keycodes {
   COG,
   MIC,
-  REC
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -31,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC, KC_RBRC, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT, \
         KC_LSFT,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_NO,   KC_NO,   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT, \
         KC_LCTL,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_HOME, KC_END,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, \
-        KC_LALT,  KC_LGUI, REC,     MIC,     KC_SPC,  KC_SPC,  TG(1),   TG(2),   KC_DEL,  KC_MPLY, KC_MUTE, COG,     KC_RGUI, KC_RCTL \
+        KC_LALT,  KC_LGUI, MEH(KC_Z), KC_SLCK, KC_SPC,  KC_SPC,  TG(1),   TG(2),   KC_DEL,  KC_MPLY, KC_MUTE, COG,     KC_RGUI, KC_RCTL \
     ),
 
     /* FNC
@@ -92,13 +91,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         // when keycode QMKBEST is pressed
         SEND_STRING("THIS IS THE MIC KEY");
-      }
-      return false;
-      break;
-    case REC:
-      if (record->event.pressed) {
-        // when keycode QMKBEST is pressed
-        SEND_STRING("THIS IS THE REC KEY");
       }
       return false;
       break;
