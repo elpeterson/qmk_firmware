@@ -1,1 +1,1 @@
-#define MATRIX_ROW_PINS { B6 }
+#define CONVERT_TO_PROTON_C_RXLED
